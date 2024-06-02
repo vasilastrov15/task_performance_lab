@@ -1,7 +1,18 @@
-result = []
+#!/usr/bin/env python
+# coding: utf-8
 
-circle_path = input('Введите путь файла с информацией об окружность:')
-dot_path = input('Введите путь файла с информацией о точках:')
+import argparse
+ 
+parser = argparse.ArgumentParser(description="Задание 2")
+parser.add_argument("circle_path", help="Путь файла с информацией об окружности")
+parser.add_argument("dot_path", help="Путь файла с информацией о точках")
+ 
+args = parser.parse_args()
+
+circle_path = args.circle_path
+dot_path = args.dot_path
+
+result = []
 
 with open(circle_path) as f_circle:
     data_circle = f_circle.readlines()
@@ -22,4 +33,3 @@ with open(dot_path) as f_dot:
             result.append(2)
 for i in result:
     print(i)
-
